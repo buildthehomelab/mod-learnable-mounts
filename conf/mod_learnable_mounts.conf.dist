@@ -1,0 +1,37 @@
+[worldserver]
+
+########################################
+# mod-learnable-mounts
+#
+# Turns mount items that summon the mount straight from the bag into normal WotLK mount items:
+# using the item teaches the mount, it shows up in the Mounts tab, and the item is used up.
+#
+# Applied once at startup; changes here need a worldserver restart.
+########################################
+
+#
+#    LearnableMounts.Enable
+#        Description: 0 = leave every item exactly as the world DB has it.
+#        Default:     1
+#
+
+LearnableMounts.Enable = 1
+
+#
+#    LearnableMounts.Items
+#        Description: Comma-separated item ids to convert. Each must have a single on-use spell
+#                     from the Mounts skill line; anything else is skipped with an error in the log.
+#                     The default is every such item in stock AzerothCore:
+#                       13325 Fluorescent Green Mechanostrider
+#                        1041 Horn of the Black Wolf           1133 Horn of the Winter Wolf
+#                        1134 Horn of the Gray Wolf            5663 Horn of the Red Wolf
+#                        2413 Palomino                         2415 White Stallion
+#                        5874 Harness: Black Ram               5875 Harness: Blue Ram
+#                        8583 Horn of the Skeletal Mount       8589 Old Whistle of the Ivory Raptor
+#                        8590 Old Whistle of the Obsidian Raptor
+#                       14062 Kodo Mount                      16339 Commander's Steed
+#                       25596 Peep's Whistle                  29225 zzoldSwift Warstrider
+#        Default:     "13325,1041,1133,1134,5663,2413,2415,5874,5875,8583,8589,8590,14062,16339,25596,29225"
+#
+
+LearnableMounts.Items = "13325,1041,1133,1134,5663,2413,2415,5874,5875,8583,8589,8590,14062,16339,25596,29225"
