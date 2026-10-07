@@ -66,6 +66,13 @@ mod-individual-progression rewrites many item_template rows back to vanilla in
 changes it. Editing the loaded template at startup can't be undone that way, and the core builds
 item tooltips from the template anyway.
 
+## Requirements
+
+- AzerothCore wotlk (master) with the WotLK 3.3.5a (12340) client.
+- No other module is needed. It is written to work next to mod-individual-progression, which
+  rewrites item rows to vanilla (see above).
+- No client patch or addon. Players clear their client cache to see the new tooltip.
+
 ## Installation
 
 1. Put this folder in your AzerothCore `modules/` directory.
@@ -89,3 +96,21 @@ mod-learnable-mounts: item 13325 (Fluorescent Green Mechanostrider) now teaches 
 | `LearnableMounts.Items` | the 16 items above | comma-separated item ids to convert |
 
 Changes take effect on the next worldserver restart.
+
+## Troubleshooting
+
+- **The tooltip still shows the old text.** The server teaches the mount either way, but the client
+  caches item data. Delete the `Cache` folder (or at least `Cache/WDB`) in the WoW folder.
+- **An item was not converted.** Check the worldserver log at startup. An item is skipped with an
+  error unless it has exactly one spell that applies a mount aura and is in the Mounts skill line.
+  Items that already use spell 55884 are skipped with an info line.
+- **A config change did nothing.** `LearnableMounts.Enable` and `LearnableMounts.Items` are read at
+  startup, so restart the worldserver.
+
+## Credits
+
+Author: [buildthehomelab](https://github.com/buildthehomelab)
+
+## License
+
+MIT. See [LICENSE](LICENSE).
